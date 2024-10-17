@@ -16,8 +16,18 @@ console.log(hasThreeVowels('go home'));         //  false
 
 */
 
-let hasThreeVowels = function(string) {
+let hasThreeVowels = function (string) {
     // Your code here
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+    // Convert the string to lowercase, split it into characters,
+    // and filter out the vowels, then create a Set to find unique ones
+    const uniqueVowels = new Set(
+        string.toLowerCase().split('').filter(char => vowels.includes(char))
+    );
+
+    // Return true if the size of the Set is at least 3
+    return uniqueVowels.size >= 3;
 };
 
 // Your code here
@@ -28,4 +38,4 @@ try {
     module.exports = hasThreeVowels;
 } catch (e) {
     module.exports = null;
-}
+}
